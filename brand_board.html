@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Guidelines Infographic</title>
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. DESIGN TOKENS
+           ========================================= */
+        :root {
+            /* FOUNDATION */
+            --bg-base: #0D1814;       
+            --bg-surface: #15201C;    
+            --bg-elevated: #1F2D27;   
+            --bg-moss: #3E4F45;       
+            
+            /* SLATE SYSTEM */
+            --slate-midnight: #363E42; 
+            --slate-charcoal: #546066; 
+            --slate-stone: #78878D;    
+            --slate-linen: #BCBDA7;    
+            
+            /* ACCENTS */
+            --accent-kinetic: #739D5C; 
+            
+            /* UI GRADIENTS (Angled for Buttons/Containers) */
+            --grad-deep: linear-gradient(135deg, #0D1814 0%, #3E4F45 100%);
+            --grad-slate: linear-gradient(90deg, #363E42 0%, #546066 100%);
+            --grad-lume: linear-gradient(135deg, #3E4F45 0%, #739D5C 100%);
+            --grad-solar: linear-gradient(135deg, #C1A15B 0%, #D7BD46 100%);
+            
+            /* DATA VIZ GRADIENTS (Vertical: Dark Bottom -> Light Top) */
+            --viz-grad-moss: linear-gradient(to top, #1F2D27 0%, #3E4F45 100%);
+            --viz-grad-slate: linear-gradient(to top, #363E42 0%, #546066 100%);
+            --viz-grad-kinetic: linear-gradient(to top, #3E4F45 0%, #739D5C 100%);
+            --viz-grad-linen: linear-gradient(to top, #78878D 0%, #BCBDA7 100%);
+
+            /* STATUS */
+            --active: #739D5C;         
+            --warning: #D7BD46;        
+            --error: #8C3B3B; 
+            --info: #78878D;           
+            
+            /* TEXT */
+            --text-main: #EAEFEC;     
+            --text-muted: #BCBDA7;     
+            
+            /* UI Config */
+            --radius: 6px;
+            --font-head: 'DM Serif Display', serif;
+            --font-body: 'Manrope', sans-serif;
+            --text-lift: 0 4px 20px rgba(0,0,0,0.5); 
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* LAYOUT CONTAINER */
+        .brand-sheet {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px; /* Increased gap slightly since header is gone */
+        }
+
+        /* SECTION HEADERS */
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--slate-linen);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 8px;
+        }
+
+        /* TOP ROW */
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* COLORS (4x4 Grid) */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            align-items: start;
+        }
+        .color-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+        }
+        .col-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        /* SWATCH CSS */
+        .swatch {
+            border-radius: var(--radius);
+            padding: 0 10px;              
+            display: flex;
+            flex-direction: column;       
+            justify-content: center;      
+            align-items: center;          
+            text-align: center;           
+            font-family: monospace;
+            font-size: 0.75rem;           
+            border: 1px solid rgba(255,255,255,0.05);
+            color: #fff;
+            line-height: 1.3;
+            height: 60px;                 
+            width: 100%;
+        }
+
+        /* TYPOGRAPHY */
+        .type-header-large {
+            font-family: var(--font-head);
+            font-size: 80px;
+            line-height: 0.8;
+            margin-bottom: 10px;
+            text-shadow: var(--text-lift);
+        }
+        .type-name {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            display: block;
+        }
+        .type-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .font-example-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .meta-tag {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: var(--slate-linen);
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* UI COMPONENTS */
+        .ui-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .ui-col-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn-pri { 
+            background: var(--grad-slate); 
+            color: #fff; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+        }
+        .btn-pri:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        .btn-sec { background: transparent; border: 1px solid var(--slate-charcoal); color: var(--text-main); }
+        .btn-ter { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+
+        /* Forms */
+        .input-mock {
+            width: 100%;
+            background: #0a100d;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Callouts */
+        .callout {
+            padding: 10px;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+            border-left: 3px solid;
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* DATA VIZ */
+        .data-viz-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+        }
+        
+        .chart-circle-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .chart-circle {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; color: #fff; font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            line-height: 1;
+            flex-direction: column;
+            font-weight: 400;
+            font-size: 0.6rem;
+            gap: 2px;
+        }
+        .chart-circle span { font-weight: 700; font-size: 0.8rem; }
+
+        .bar-chart-mock {
+            height: 120px; 
+            display: flex; 
+            align-items: flex-end; 
+            gap: 12px; 
+            border-left: 1px solid var(--slate-charcoal); 
+            border-bottom: 1px solid var(--slate-charcoal); 
+            padding: 0 10px 0 10px;
+        }
+        
+        .bar-item {
+            border-radius: 4px 4px 0 0;
+            border: 1px solid rgba(255,255,255,0.05); 
+            border-bottom: none;
+            transition: height 1s ease;
+        }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th { text-align: left; color: var(--slate-linen); font-size: 0.7rem; text-transform: uppercase; padding: 10px 5px; border-bottom: 2px solid rgba(255,255,255,0.1); }
+        td { padding: 10px 5px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
+        tr:hover td { color: var(--text-main); background: rgba(255,255,255,0.02); }
+
+        /* Progress Bar Mockup */
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--grad-lume);
+        }
+
+        /* FOOTER */
+        .ai-footer {
+            margin-top: 20px;
+            border-top: 1px dashed var(--slate-charcoal);
+            padding-top: 20px;
+        }
+        .code-box {
+            background: #000;
+            padding: 15px;
+            border-radius: var(--radius);
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #8FA1AC;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        /* Responsive */
+        @media(max-width: 900px) {
+            .top-row, .ui-row, .data-viz-container { grid-template-columns: 1fr; }
+            .ui-row { grid-template-columns: 1fr 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="brand-sheet">
+
+        <!-- HEADER REMOVED PER REQUEST -->
+
+        <!-- ROW 1: COLORS & TYPE -->
+        <div class="top-row">
+            
+            <!-- LEFT: COLOR PALETTE -->
+            <div>
+                <span class="section-label">Color Palette</span>
+                <div class="color-grid">
+                    
+                    <!-- Col 1: Foundation -->
+                    <div class="color-col">
+                        <span class="col-title">Foundation</span>
+                        <div class="swatch" style="background: #0D1814;">#0D1814<br>Base</div>
+                        <div class="swatch" style="background: #15201C;">#15201C<br>Surface</div>
+                        <div class="swatch" style="background: #1F2D27;">#1F2D27<br>Elevated</div>
+                        <div class="swatch" style="background: #3E4F45;">#3E4F45<br>Moss</div>
+                    </div>
+
+                    <!-- Col 2: Slate System -->
+                    <div class="color-col">
+                        <span class="col-title">Primary Slate</span>
+                        <div class="swatch" style="background: #363E42;">#363E42<br>Midnight</div>
+                        <div class="swatch" style="background: #546066;">#546066<br>Charcoal</div>
+                        <div class="swatch" style="background: #78878D;">#78878D<br>Stone</div>
+                        <div class="swatch" style="background: #BCBDA7; color: #000;">#BCBDA7<br>Linen</div> 
+                    </div>
+
+                    <!-- Col 3: Semantic -->
+                    <div class="color-col">
+                        <span class="col-title">Semantic</span>
+                        <div class="swatch" style="background: #739D5C;">#739D5C<br>Kinetic</div> 
+                        <div class="swatch" style="background: #D7BD46; color: #000;">#D7BD46<br>Solar</div> 
+                        <div class="swatch" style="background: #8C3B3B;">#8C3B3B<br>Error</div>
+                        <div class="swatch" style="background: #78878D;">#78878D<br>Info</div> 
+                    </div>
+
+                    <!-- Col 4: Gradients -->
+                    <div class="color-col">
+                        <span class="col-title">Gradients</span>
+                        <div class="swatch" style="background: linear-gradient(135deg, #0D1814 0%, #3E4F45 100%);">Deep<br>Field</div>
+                        <div class="swatch" style="background: linear-gradient(90deg, #363E42 0%, #546066 100%);">Slate<br>Shift</div>
+                        <div class="swatch" style="background: linear-gradient(135deg, #3E4F45 0%, #739D5C 100%);">Bio<br>Lume</div>
+                        <div class="swatch" style="background: linear-gradient(135deg, #C1A15B 0%, #D7BD46 100%); color: #000;">Solar<br>Flare</div> 
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT: TYPOGRAPHY -->
+            <div>
+                <span class="section-label">Typography</span>
+                <div class="type-header-large">Aa</div>
+                <span class="type-name">DM Serif Display</span>
+                <span class="type-desc">Editorial, authoritative, raised.</span>
+
+                <!-- Examples -->
+                <div class="font-example-row">
+                    <span style="font-family: 'DM Serif Display'; font-size: 2rem; text-shadow: var(--text-lift);">Page Title</span>
+                    <span class="meta-tag">DM Serif / 32-48pt</span>
+                </div>
+                <div class="font-example-row">
+                    <span style="font-family: 'Manrope'; font-weight: 700; font-size: 1.2rem; color: var(--text-main);">Section Heading</span>
+                    <span class="meta-tag">Manrope Bold / 18-24pt</span>
+                </div>
+                <div class="font-example-row">
+                    <span style="font-family: 'Manrope'; font-weight: 400; font-size: 1rem; color: var(--text-muted);">Standard body text for UI.</span>
+                    <span class="meta-tag">Manrope Reg / 16pt</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 2: UI COMPONENTS -->
+        <div>
+            <span class="section-label">UI Components</span>
+            <div class="ui-row">
+                
+                <!-- 1. Buttons -->
+                <div>
+                    <span class="ui-col-title">Buttons</span>
+                    <a class="btn btn-pri">Primary Action</a>
+                    <a class="btn btn-sec">Secondary</a>
+                    <a class="btn btn-ter">Tertiary / Ghost</a>
+                </div>
+
+                <!-- 2. Forms -->
+                <div>
+                    <span class="ui-col-title">Forms</span>
+                    <div class="input-mock">Enter details...</div>
+                    <div class="input-mock" style="border-color: var(--error); color: #E58B8B;">Invalid Entry</div>
+                </div>
+
+                <!-- 3. Callouts -->
+                <div>
+                    <span class="ui-col-title">Callouts</span>
+                    <div class="callout" style="border-color: var(--slate-charcoal);">
+                        <strong style="color: var(--text-main);">Info:</strong> System ready.
+                    </div>
+                    <div class="callout" style="border-color: var(--warning);">
+                        <strong style="color: #D7BD46;">Alert:</strong> Check data.
+                    </div>
+                </div>
+
+                <!-- 4. Badges/Tags -->
+                <div>
+                    <span class="ui-col-title">Status Tags</span>
+                    <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                        <span class="meta-tag" style="background: rgba(115, 157, 92, 0.2); color: #739D5C; padding: 4px 8px;">Active</span>
+                        <span class="meta-tag" style="background: rgba(215, 189, 70, 0.2); color: #D7BD46; padding: 4px 8px;">Pending</span>
+                        <span class="meta-tag" style="background: rgba(140, 59, 59, 0.2); color: #E58B8B; padding: 4px 8px;">Error</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ROW 3: DATA VIZ (WITH GRADIENT BARS) -->
+        <div>
+            <span class="section-label">Data Visualization</span>
+            <div class="data-viz-container">
+                
+                <!-- Chart Order -->
+                <div>
+                    <span class="ui-col-title">Chart Color Order</span>
+                    <div class="chart-circle-row">
+                        <div class="chart-circle" style="background: #3E4F45;"><span>1</span>Moss</div>
+                        <div class="chart-circle" style="background: #546066;"><span>2</span>Charc</div>
+                        <div class="chart-circle" style="background: #739D5C;"><span>3</span>Kinetic</div>
+                        <div class="chart-circle" style="background: #BCBDA7; color: #000;"><span>4</span>Linen</div>
+                    </div>
+                    
+                    <!-- Bar Chart Mockup (VERTICAL GRADIENTS) -->
+                    <div class="bar-chart-mock">
+                        <div class="bar-item" style="width: 25%; height: 40%; background: var(--viz-grad-moss);"></div>
+                        <div class="bar-item" style="width: 25%; height: 80%; background: var(--viz-grad-slate);"></div>
+                        <div class="bar-item" style="width: 25%; height: 50%; background: var(--viz-grad-kinetic);"></div>
+                        <div class="bar-item" style="width: 25%; height: 90%; background: var(--viz-grad-linen);"></div>
+                    </div>
+                </div>
+
+                <!-- Data Tables -->
+                <div>
+                    <span class="ui-col-title">Data Tables</span>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Client</th>
+                                <th>Status</th>
+                                <th>Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UX Infrastructure</td>
+                                <td>District A</td>
+                                <td style="color: #739D5C;">Active</td>
+                                <td style="width: 30%;">
+                                    <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Audit Report</td>
+                                <td>District B</td>
+                                <td style="color: #D7BD46;">Review</td> 
+                                <td style="width: 30%;">
+                                    <div class="progress-track"><div class="progress-fill" style="width: 45%;"></div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Staff Training</td>
+                                <td>District C</td>
+                                <td style="color: #BCBDA7;">Pending</td>
+                                <td style="width: 30%;">
+                                    <div class="progress-track"><div class="progress-fill" style="width: 5%;"></div></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER: AI PROMPT -->
+        <div class="ai-footer">
+            <span class="section-label">AI Prompt Prototype Code</span>
+            <div class="code-box">
+/* COPY THIS FOR AI GENERATION */
+:root {
+  /* FOUNDATION */
+  --bg-base: #0D1814; 
+  --bg-surface: #15201C; 
+  --bg-elevated: #1F2D27; 
+  --bg-moss: #3E4F45; 
+
+  /* SLATE SYSTEM */
+  --slate-midnight: #363E42; 
+  --slate-charcoal: #546066; 
+  --slate-stone: #78878D;    
+  --slate-linen: #BCBDA7;  /* Warm Text */
+
+  /* ACCENTS & VIZ */
+  --accent-kinetic: #739D5C; /* Bright Olive */
+  --accent-solar: #D7BD46;   /* Warning Gold */
+  
+  --viz-1: #3E4F45; --viz-2: #546066; --viz-3: #739D5C; --viz-4: #BCBDA7;
+  
+  --text: #EAEFEC; --font-head: 'DM Serif Display'; --font-body: 'Manrope'; 
+  --radius: 6px; --shadow-lift: 0 4px 20px rgba(0,0,0,0.5);
+  
+  /* DATA VIZ GRADIENTS (Vertical: Dark->Light) */
+  --viz-grad-moss: linear-gradient(to top, #1F2D27 0%, #3E4F45 100%);
+  --viz-grad-slate: linear-gradient(to top, #363E42 0%, #546066 100%);
+  --viz-grad-kinetic: linear-gradient(to top, #3E4F45 0%, #739D5C 100%);
+  --viz-grad-linen: linear-gradient(to top, #78878D 0%, #BCBDA7 100%);
+}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
