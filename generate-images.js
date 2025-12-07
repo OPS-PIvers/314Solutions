@@ -10,7 +10,7 @@ const sizes = {
 };
 
 const imageFiles = [
-  'banner.jpeg',
+  'banner.png',
   'icon.jpeg',
   'doc2lms-preview.png',
   'peer-eval-preview.png',
@@ -29,8 +29,9 @@ async function processImage(inputPath, outputDir) {
   const basename = path.basename(inputPath, path.extname(inputPath));
   const image = sharp(inputPath);
   const metadata = await image.metadata();
+  const hasAlpha = metadata.channels === 4;
 
-  console.log(`Processing ${inputPath} (${metadata.width}x${metadata.height})...`);
+  console.log(`Processing ${inputPath} (${metadata.width}x${metadata.height}, ${hasAlpha ? 'with transparency' : 'opaque'})...`);
 
   for (const [sizeName, width] of Object.entries(sizes)) {
     if (metadata.width < width) {
@@ -43,10 +44,18 @@ async function processImage(inputPath, outputDir) {
       fit: 'inside'
     });
 
-    await resized
-      .jpeg({ quality: 85, progressive: true })
-      .toFile(path.join(outputDir, `${basename}-${sizeName}.jpg`));
+    // Save PNG for transparent images, JPG for opaque
+    if (hasAlpha) {
+      await resized
+        .png({ quality: 85, compressionLevel: 9 })
+        .toFile(path.join(outputDir, `${basename}-${sizeName}.png`));
+    } else {
+      await resized
+        .jpeg({ quality: 85, progressive: true })
+        .toFile(path.join(outputDir, `${basename}-${sizeName}.jpg`));
+    }
 
+    // Always create WebP (supports transparency)
     await resized
       .webp({ quality: 85 })
       .toFile(path.join(outputDir, `${basename}-${sizeName}.webp`));
@@ -54,6 +63,7 @@ async function processImage(inputPath, outputDir) {
     console.log(`  Created ${sizeName} version (${width}px)`);
   }
 
+  // Original size WebP
   await image
     .webp({ quality: 90 })
     .toFile(path.join(outputDir, `${basename}-original.webp`));
