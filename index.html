@@ -206,9 +206,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('banner.jpeg') center/cover no-repeat;
+            background: url('images/banner-medium.webp') center/cover no-repeat;
             opacity: 0.08;
             z-index: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .hero::before {
+                background-image: url('images/banner-large.webp');
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero::before {
+                background-image: url('images/banner-small.webp');
+            }
         }
 
         .hero::after {
@@ -1296,7 +1308,10 @@
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="icon.jpeg" alt="314 Solutions">
+                <picture>
+                    <source srcset="images/icon-thumbnail.webp" type="image/webp">
+                    <img src="images/icon-thumbnail.jpg" alt="314 Solutions" width="40" height="40">
+                </picture>
                 <span>314 Solutions</span>
             </a>
 
@@ -1381,7 +1396,22 @@
             <div class="about-grid">
                 <div class="about-image">
                     <div class="about-image-wrapper">
-                        <img src="banner.jpeg" alt="314 Solutions workspace">
+                        <picture>
+                            <source
+                                srcset="images/banner-large.webp 1920w,
+                                        images/banner-medium.webp 1024w,
+                                        images/banner-small.webp 640w"
+                                type="image/webp"
+                                sizes="(min-width: 1200px) 600px, (min-width: 768px) 50vw, 100vw">
+                            <img
+                                src="images/banner-medium.jpg"
+                                srcset="images/banner-large.jpg 1920w,
+                                        images/banner-medium.jpg 1024w,
+                                        images/banner-small.jpg 640w"
+                                sizes="(min-width: 1200px) 600px, (min-width: 768px) 50vw, 100vw"
+                                alt="314 Solutions workspace"
+                                loading="lazy">
+                        </picture>
                     </div>
                     <div class="about-decoration"></div>
                 </div>
@@ -1530,7 +1560,22 @@
                 <!-- Doc2LMS -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="doc2lms-preview.png" alt="Doc2LMS Interface">
+                        <picture>
+                            <source
+                                srcset="images/doc2lms-preview-medium.webp 1024w,
+                                        images/doc2lms-preview-small.webp 640w,
+                                        images/doc2lms-preview-thumbnail.webp 320w"
+                                type="image/webp"
+                                sizes="(min-width: 1200px) 350px, (min-width: 768px) 45vw, 100vw">
+                            <img
+                                src="images/doc2lms-preview-medium.jpg"
+                                srcset="images/doc2lms-preview-medium.jpg 1024w,
+                                        images/doc2lms-preview-small.jpg 640w,
+                                        images/doc2lms-preview-thumbnail.jpg 320w"
+                                sizes="(min-width: 1200px) 350px, (min-width: 768px) 45vw, 100vw"
+                                alt="Doc2LMS Interface"
+                                loading="lazy">
+                        </picture>
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-content">
@@ -1553,7 +1598,22 @@
                 <!-- Peer Evaluator -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="peer-eval-preview.png" alt="Peer Evaluator Interface">
+                        <picture>
+                            <source
+                                srcset="images/peer-eval-preview-medium.webp 1024w,
+                                        images/peer-eval-preview-small.webp 640w,
+                                        images/peer-eval-preview-thumbnail.webp 320w"
+                                type="image/webp"
+                                sizes="(min-width: 1200px) 350px, (min-width: 768px) 45vw, 100vw">
+                            <img
+                                src="images/peer-eval-preview-medium.jpg"
+                                srcset="images/peer-eval-preview-medium.jpg 1024w,
+                                        images/peer-eval-preview-small.jpg 640w,
+                                        images/peer-eval-preview-thumbnail.jpg 320w"
+                                sizes="(min-width: 1200px) 350px, (min-width: 768px) 45vw, 100vw"
+                                alt="Peer Evaluator Interface"
+                                loading="lazy">
+                        </picture>
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-content">
@@ -1576,7 +1636,22 @@
                 <!-- Spartan Cup -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="spartan-cup-preview.png" alt="Spartan Cup Interface">
+                        <picture>
+                            <source
+                                srcset="images/spartan-cup-preview-medium.webp 1024w,
+                                        images/spartan-cup-preview-small.webp 640w,
+                                        images/spartan-cup-preview-thumbnail.webp 320w"
+                                type="image/webp"
+                                sizes="(min-width: 1200px) 350px, (min-width: 768px) 45vw, 100vw">
+                            <img
+                                src="images/spartan-cup-preview-medium.jpg"
+                                srcset="images/spartan-cup-preview-medium.jpg 1024w,
+                                        images/spartan-cup-preview-small.jpg 640w,
+                                        images/spartan-cup-preview-thumbnail.jpg 320w"
+                                sizes="(min-width: 1200px) 350px, (min-width: 768px) 45vw, 100vw"
+                                alt="Spartan Cup Interface"
+                                loading="lazy">
+                        </picture>
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-content">
@@ -1722,7 +1797,10 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">
-                        <img src="icon.jpeg" alt="314 Solutions" style="width: 40px; height: 40px; border-radius: 50%;">
+                        <picture>
+                            <source srcset="images/icon-thumbnail.webp" type="image/webp">
+                            <img src="images/icon-thumbnail.jpg" alt="314 Solutions" style="width: 40px; height: 40px; border-radius: 50%;" width="40" height="40">
+                        </picture>
                         <span style="font-family: var(--font-head); font-size: 1.5rem;">314 Solutions</span>
                     </a>
                     <p>
